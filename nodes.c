@@ -15,6 +15,17 @@ Node* create_node(NodeType type, Node* left, Node* middle, Node* right, int valu
 
 char* node_type_to_description(NodeType type) {
     switch (type) {
+    case N_VARIABLES:
+	return "variables";
+
+    case N_CODES:
+    	return "codes";
+
+    case N_STRING:
+   	return "string";
+
+    case N_INTEGER:
+
     case N_EMPTY:
         return "empty";
 

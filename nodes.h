@@ -1,6 +1,10 @@
 #pragma once
 
 typedef enum {
+    N_VARIABLES,
+    N_CODES,
+    N_INTEGER,
+    N_STRING,
     N_EMPTY,
     N_ASSIGNMENT,
     N_INT,

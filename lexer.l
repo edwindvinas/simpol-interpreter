@@ -6,6 +6,12 @@
 %}
 
 %%
+variable return T_VARIABLES;
+code return T_CODES;
+STG return T_STRING;
+BLN return T_BOOL;
+INT return T_INTEGER;
+
 var return T_VAR;
 begin return T_BEGIN;
 end return T_END;
@@ -18,6 +24,7 @@ else return T_ELSE;
 not return T_NOT;
 return return T_RETURN;
 print return T_PRINT;
+
 
 [a-zA-Z][0-9a-zA-Z_]* {yylval.integer = *yytext - 'a'; return T_IDENTIFIER;}
 [0123456789]+ {yylval.integer = atoi(yytext); return T_INTEGER;}

@@ -12,8 +12,8 @@
 * Forked Original Codes from: https://github.com/BernhardPosselt/interpreter
 * Created own repository called https://github.com/edwindvinas/simpol-interpreter
 * So what now? How to start? Where to start?
-* https://docs.google.com/drawings/d/1bP3Y9BvOFyAi5F0yo8LWfVUbtyUkNCrsADHyaYRH1pE/edit
-* Looking at the sample C interpreter, it uses Lex and Yacc for lexing and parsing
+* Analyzed BernhardPosselt's code and I can see this interpreter uses a Lexer and Parser using Lex and Yacc https://docs.google.com/drawings/d/1bP3Y9BvOFyAi5F0yo8LWfVUbtyUkNCrsADHyaYRH1pE/edit
+* Now, aside from reviewing C, I need to also know how Lex and Yacc are used for lexing and parsing
 
 ## What is Lex & Yacc?
 Before 1975 writing a compiler was a very time-consuming process. Then Lesk [1975] and Johnson [1975] published papers on lex and yacc. These utilities greatly simplify compiler writing. Implementation details for lex and yacc may be found in Aho [2006]. Flex and bison, clones for lex and yacc, can be obtained for free from GNU [http://www.gnu.org/] and Cygwin [http://www.cygwin.com/].
@@ -218,4 +218,5 @@ You can output a text everytime the interpreter is run such as showing the inter
 	make
 	...
 	
+
 
