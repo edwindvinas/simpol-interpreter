@@ -1,4 +1,4 @@
-# Simpol Interpreter written in C for a fictional SIMPOL language
+# Simpol Interpreter - A university project to create a simple interpreter to interpret a simple language called "SIMPOL"
 
 ## Authors:
 
