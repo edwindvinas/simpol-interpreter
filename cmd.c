@@ -18,6 +18,12 @@ Options* parse_cmd(int argc, char *argv[]) {
         }
     }
 
+    /* SIMPOL INTERPRETER */ 
+    printf("**********************************\n");
+    printf("* Simpol Interpreter v1          *\n");
+    printf("* Written in C, Lex, Yacc        *\n");
+    printf("**********************************\n");
+
     if (optind >= argc) {
         printf("Please provide a path to a program as the first parameter!\n");
         exit(EXIT_FAILURE);

@@ -88,7 +88,9 @@ int interpret(Node* node, int debug, int indention) {
         int i;
         int times;
         Sub* sub;
-
+	
+	//printf("node->type = %s\n", node->type);
+	//printf("%s\n", node);
         switch (node->type) {
 
         case N_STMT:
