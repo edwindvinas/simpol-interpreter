@@ -11,6 +11,7 @@
 
 * getopt
 * bison
+* flex
 * make
 
 ## Downloading
@@ -83,7 +84,25 @@ Run:
 	
 ## Running in Google Cloud Shell
 
+	sudo apt-get install flex
 	git clone https://github.com/edwindvinas/simpol-interpreter.git
 	cd simpol-interpreter/	
 	make
 	./simpol-interpreter programs/myprogram.sim -d
+
+## Error - recipe for target 'all' failed
+	edwin_d_vinas@gcp-testbed:~/simpol-interpreter$ make
+	rm -f interpreter
+	rm -f lex.yy.c
+	rm -f y.tab.c
+	rm -f y.tab.h
+	rm -f y.output
+	lex lexer.l
+	make: lex: Command not found
+	Makefile:2: recipe for target 'all' failed
+
+## Fix
+	sudo apt-get install flex
+	make
+	...
+	
