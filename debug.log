@@ -1,0 +1,160 @@
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 25] ****************************************************
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 26] Starting simpol interpreter... 
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 27] ****************************************************
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 53] SIMPOL FILE: programs/simpol5.sim
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 57] OK: File exist!
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 58] -----------INPUT CODES----------------------------
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 72] variable {
+STG a 
+STG b
+INT c
+INT d
+INT e
+BLN f
+BLN g
+}
+code {
+PUT $ The result is in: $ IN a
+ASK b
+PUT true IN f
+PUT false IN g
+PUT ADD 1 2 IN c
+PUT 100 IN d
+PRT $Your name is $
+PRT b
+PRT OHR true AND f g
+PUT MUL 10 ADD c d IN e
+PRT e
+PRT DIV MUL 10 ADD c d MUL 10 ADD c d
+PRT $Goodbye!$
+}
+
+[Sun Nov 20 12:28:43 2016] [cmd.c][line: 76] ------------------------------------------------
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 172] Execute yyparse()
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 1: KEYWORD: variable
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 1: {
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 2: KEYWORD: STG
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 2: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 2: a
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 2: PATTERN: T_STRING T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 3: KEYWORD: STG
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 3: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 3: b
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 3: PATTERN: T_STRING T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 4: KEYWORD: INT
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 4: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 4: c
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 4: PATTERN: T_INTEGER T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 5: KEYWORD: INT
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 5: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 5: d
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 5: PATTERN: T_INTEGER T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 6: KEYWORD: INT
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 6: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 6: e
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 6: PATTERN: T_INTEGER T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 7: KEYWORD: BLN
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 7: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 7: f
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 7: PATTERN: T_BOOL T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 8: KEYWORD: BLN
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 8: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 8: g
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 8: PATTERN: T_BOOL T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: }
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: end of program
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: stmt stmts
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 9: PATTERN: T_VARIABLES T_OPEN_CURLY_BRACKET stmts T_CLOSE_CURLY_BRACKET
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 10: KEYWORD: code
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 10: {
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: KEYWORD: PUT
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: STRING_LITERAL
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11:  The result is in: $
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: The result is in:
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: KEYWORD: IN
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: IDENTIFIER: 
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: a
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 11: PATTERN: T_IN T_IDENTIFIER
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 12: KEYWORD: ASK
+
+[Sun Nov 20 12:28:43 2016] [parser.y][line: 21] line 12: Getting user input from keyboard
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: Edwin
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: IDENTIFIER: 
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: niwdE
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: IDENTIFIER: 
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: b
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: PATTERN: T_IDENTIFIER
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: PATTERN: T_ASK expr
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 12: PATTERN: T_PUT expr T_IN expr
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 13: KEYWORD: PUT
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 21] line 13: PATTERN: T_IDENTIFIER
+
+[Sun Nov 20 12:28:45 2016] [parser.y][line: 174] Execute start_interpreter()
+[Sun Nov 20 12:28:45 2016] [interpreter.c][line: 84] start_interpreter()
+[Sun Nov 20 12:28:45 2016] [interpreter.c][line: 18] push_scope()

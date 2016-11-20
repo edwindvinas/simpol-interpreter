@@ -6,12 +6,13 @@
 
 ## About
 * Simpol Interpreter written in C for a fictional SIMPOL language
-* For someone who didn't study Computer Science, it is difficult to create an interpreter from scratch, let alone studying C
-* We were taught about the basics of how compilers and interpreters work
 * This project is a requirement to create a simple interpreter using C/C++/C#/Java but I am not comfortable coding in all of these language but given my college subject Turbo C, I decided to look for an existing interpreter in Github
+* For someone who didn't study Computer Science, it is difficult to create an interpreter from scratch, let alone studying C/C++/C#/Java which are the only allowed language in the class
+* We were taught about the basics of how compilers and interpreters work
+* We were also introduced to how to parse the tokens and create syntax/grammar
+* So what now? How to start? Where to start?
 * Forked Original Codes from: https://github.com/BernhardPosselt/interpreter
 * Created own repository called https://github.com/edwindvinas/simpol-interpreter
-* So what now? How to start? Where to start?
 * Analyzed BernhardPosselt's code and I can see this interpreter uses a Lexer and Parser using Lex and Yacc https://docs.google.com/drawings/d/1bP3Y9BvOFyAi5F0yo8LWfVUbtyUkNCrsADHyaYRH1pE/edit
 * Now, aside from reviewing C, I need to also know how Lex and Yacc are used for lexing and parsing
 
@@ -22,6 +23,11 @@ Lex and Yacc tutorials:
 * http://epaperpress.com/lexandyacc/
 * http://epaperpress.com/lexandyacc/download/LexAndYaccTutorial.pdf
 * http://epaperpress.com/lexandyacc/download/LexAndYaccCode.zip
+
+## Lex & Yacc Tutorial Videos
+* Lex/Yacc Tutorial Part 1 https://www.youtube.com/watch?v=54bo1qaHAfk
+* Lex/Yacc Tutorial Part 2 https://www.youtube.com/watch?v=__-wUHG2rfM
+* Source codes for Lex/Yacc Tutorial: https://github.com/jengelsma/yacc-tutorial
 
 ![Compilation sequence using Lex and Yacc](http://lh3.googleusercontent.com/3-WIepgg26Dp0xiC5bFLaK_j6ui6xKywX10hKi7ft6dxMeLXD7LrZGYa027FuTpHu7kyvQ65cjHBrcv2UDMCFPJ7Lyox)
 
@@ -44,6 +50,247 @@ tree imposes a hierarchical structure the tokens. For example, operator preceden
 associativity are apparent in the syntax tree. The next step, code generation, does a depth-first
 walk of the syntax tree to generate code. Some compilers produce machine code, while others, as
 shown above, output assembly language.
+
+### What is the grammar of SIMPOL language?
+
+Knowing Lex and Yacc is useless if you don't know the language you are working on. You need to understand how the language is structured so we can define the patterns to be used in lexer and also the productions to be used in Yacc.
+
+#### Structure
+SIMPOL has 2 main sections, one for declaring variables and the other for coding. 
+
+    variable {
+    ...
+    }
+    
+    code {
+    ...
+    }
+ 
+This programming language has 3 main data types namely integer, Boolean, and string.
+
+    Integer
+    Boolean
+    String
+
+#### Formatting
+• Spaces are used to demarcate tokens in the language.
+• Multiple spaces and tabs are treated as single spaces and are otherwise considered irrelevant.
+• Indentation is also irrelevant.
+• SIMPOL is case sensitive.
+
+#### Section: variable { }
+• All variables are needed to be declared inside this segment.
+• No variable declaration is allowed in code { }.
+• You cannot use a variable unless declared.
+• All variables are global in scope.
+• Example:
+
+    variable {
+    INT a
+    BLN b
+    STG s
+    }
+
+#### Section: code { }
+• This is where the actual instructions for a SIMPOL code are written.
+• Example:
+
+    code {
+    PRT ADD 1 SUB 8 9
+    ASK a
+    PRT a
+    }
+
+#### Variables and Data Types 
+• There are 3 main data types in SIMPOL: integer (INT), Boolean (BLN) and string (STG).
+• A string is enclosed by 2 dollar signs ($)
+• Boolean has 2 possible values: true and false.
+• To declare a variable in variable { }, the format is <data_type> <variable_name>
+
+#### User Input and Output
+• To ask for input, use the ASK operator. The format is ASK <variable_name>.
+• To print values, use the PRT operator. The format is PRT <expression>
+
+#### Operations
+• Take Note: An expression can be composed of several adjacent operators. It is not only
+limited to 1 operator. Thus, nested expressions are allowed.
+
+##### Assignment Operation
+Assignment 
+
+    PUT <expression> IN <variable>
+
+##### Arithmetic Operations
+Addition 
+
+    ADD <expression1> <expression2>
+
+Subtraction 
+
+    SUB <expression1> <expression2>
+
+Multiplication 
+
+    MUL <expression1> <expression2>
+
+Division 
+
+    DIV <expression1> <expression2>
+
+Modulo 
+
+    MOD <expression1> <expression2>
+
+##### Numeric Predicates
+Greater Than 
+
+    GRT <expression1> <expression2>
+
+Greater Than or Equal 
+
+    GRE <expression1> <expression2>
+
+Less Than 
+
+    LET <expression1> <expression2>
+
+Less Than or Equal 
+
+    LEE <expression1> <expression2>
+
+Equal 
+
+    EQL <expression1> <expression2>
+
+##### Logical Operations
+And 
+
+    AND <expression1> <expression2>
+
+Or `
+
+    OHR <expression1> <expression2>`
+
+Not 
+
+    NON <expression1>
+
+#### Limitations
+* To make things simple, an identifier should consist of letters only.
+* No initializing of variables inside the variable { }
+* There are no operations to be performed on strings. If you try to perform any operations on them, it should throw an error.
+* You can perform operations on Boolean using logical operations.
+* code { } may be empty.
+* It is required that variable{ } should be declared first before code{ } 
+* Nested expressions should be allowed
+
+##### Sample Empty SIMPOL Program
+
+    variable { }
+    code { }
+
+##### Simple SIMPOL Program
+
+    variable {
+    BLN a
+    }
+    code {
+    PUT ADD 3 SUB 8 9 IN a
+    PRT a
+    }
+
+##### Sample Non-nested SIMPOL Program
+
+	variable {
+	STG str
+	STG name
+	INT num1
+	INT num2
+	INT num3
+	INT num4
+	INT num5
+	BLN bol1
+	BLN bol2
+	}
+	 
+	code {
+	PUT $The result is: $ IN str
+	ASK name
+	PUT true IN bol1
+	PUT false IN bol2
+	PUT ADD 1 2 IN num1
+	PUT 100 IN num2
+	 
+	PRT $Your name is $
+	PRT name
+	PRT OHR true AND bol1 bol2
+	PUT ADD num1 num2 IN num3
+	PUT MUL 10 num3
+	PRT num3
+	PUT MUL 10 ADD num1 num2 IN num4
+	PUT MUL 10 ADD num1 num2 IN num5
+	PRT DIV num4 num5
+	PRT $Goodbye!$
+	}
+
+##### Sample Nested SIMPOL Program
+	variable {
+	STG str
+	STG name
+	INT num1
+	INT num2
+	INT num3
+	BLN bol1
+	BLN bol2
+	}
+	 
+	code {
+	PUT $The result is: $ IN str
+	ASK name
+	PUT true IN bol1
+	PUT false IN bol2
+	PUT ADD 1 2 IN num1
+	PUT 100 IN num2
+	 
+	PRT $Your name is $
+	PRT name
+	PRT OHR true AND bol1 bol2
+	PUT MUL 10 ADD num1 num2 IN num3
+	PRT num3
+	PRT DIV MUL 10 ADD num1 num2 MUL 10 ADD num1 num2
+	PRT $Goodbye!$
+	}
+
+#### Formulate Grammar
+
+Out of the specs of the SIMPOL language, we can formulate the grammar or syntax.
+
+??????
+
+### Why Grammars are important?
+It allows us to parse a certain language and determine if it is syntactically correct based on the grammar.
+
+#### Example 1
+Prove that "aabbaa" is a valid derivation of the grammar:
+
+    S ::= aAS | a
+    A ::= SbA | SS | ba
+
+Illustration:
+
+    S => a(SbA)S <-- replace A with possible vale SbA
+    S => a(a)b(ba)a <-- replace S with possible value a; replace A with ba
+    S => aabbaa <-- Yes, this is a valid syntax!
+
+#### Example 2
+Prove "(())()" is a valid derivation of grammar:
+
+    S ::= SS | (S) | ( )
+Illustration:
+
+    S => SS
+    S => (S)S
+    S => (())()
 
 ### Modules
 
@@ -131,7 +378,7 @@ Run:
 
     ./simpol-interpreter programs/myprogram.sim -d
 	
-## Sample Simpol file (.sim)
+## Sample Simpol file (myprogram.sim)
 
 	variable {
 	STG str
@@ -218,5 +465,21 @@ You can output a text everytime the interpreter is run such as showing the inter
 	make
 	...
 	
+
+## References
+* Logger http://simplestcodings.blogspot.com/2010/10/simple-logger-in-c.html
+* 
+
+
+
+
+
+
+
+
+
+
+
+
 
 

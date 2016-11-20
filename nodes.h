@@ -3,8 +3,17 @@
 typedef enum {
     N_VARIABLES,
     N_CODES,
+    N_PUT,
     N_INTEGER,
     N_STRING,
+    N_BOOL,
+    N_ADD,
+    N_SUB,
+    N_MUL,
+    N_DIV,
+    N_MOD,
+    N_IN,
+    N_ASK,
     N_EMPTY,
     N_ASSIGNMENT,
     N_INT,
@@ -18,7 +27,7 @@ typedef enum {
     N_LOOP_FOR_BLOCK,
     N_IF,
     N_IF_ELSE,
-    N_SUB,
+    //N_SUB,
     N_CALL,
     N_PRINT,
     N_STMT,
@@ -40,9 +49,11 @@ typedef enum {
 typedef struct node {
     NodeType type;
     int value;
+    /*char *strValue;*/
     struct node* left;
     struct node* middle;
     struct node* right;
+    char *strValue;
 } Node;
 
 typedef struct sub {
@@ -56,5 +67,5 @@ typedef struct scope {
     struct scope* previous_scope;
 } Scope;
 
-Node* create_node(NodeType type, Node* left, Node* middle, Node* right, int value);
+Node* create_node(NodeType type, Node* left, Node* middle, Node* right, int value, char *strValue);
 char* node_type_to_description(NodeType type);

@@ -1,0 +1,24 @@
+variable {
+STG a 
+STG b
+INT c
+INT d
+INT e
+BLN f
+BLN g
+}
+code {
+PUT $100$ IN a
+ASK b
+PUT true IN f
+PUT false IN g
+PUT ADD 1 2 IN c
+PUT 100 IN d
+PRT $Your name is $
+PRT b
+PRT OHR true AND f g
+PUT MUL 10 ADD c d IN e
+PRT e
+PRT DIV MUL 10 ADD c d MUL 10 ADD c d
+PRT $Goodbye!$
+}
