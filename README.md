@@ -265,7 +265,64 @@ Not
 
 Out of the specs of the SIMPOL language, we can formulate the grammar or syntax.
 
-??????
+    	variable {	/* <-- T_BEGIN_VARIABLE_BLOCK */
+    	STG str		
+    	STG name	
+    	INT num1
+    	INT num2
+    	INT num3
+    	BLN bol1
+    	BLN bol2
+    	}	/* <-- T_END_BLOCK */
+    	
+    /* 	Inside Variable Block:
+        ----------------------
+    		<variable_block_lines> := <data_type> <identifier>
+    		<data_type> := STG | INT | BLN
+    		<identifier> := <alpha-literals>
+    		<alpha-literals> := [a-zA-Z]
+    */
+    	 
+    	code {	/* <-- T_BEGIN_CODE_BLOCK */
+    	PUT $The result is: $ IN str
+    	ASK name
+    	PUT true IN bol1
+    	PUT false IN bol2
+    	PUT ADD 1 2 IN num1
+    	PUT 100 IN num2
+    	 
+    	PRT $Your name is $
+    	PRT name
+    	PRT OHR true AND bol1 bol2
+    	PUT MUL 10 ADD num1 num2 IN num3
+    	PRT num3
+    	PRT DIV MUL 10 ADD num1 num2 MUL 10 ADD num1 num2
+    	PRT $Goodbye!$
+    	} /* <-- T_END_BLOCK */
+    	
+    /*
+    	Inside Code Block:
+    	------------------
+    		<code_block_lines> := <expr>
+    		<expr> := <put-expr> | <ask-expr> | <print-expr>
+    		<ask-expr> := ASK <identifier>
+    		<print-expr> := <identifier> | $<hard-coded-str>$
+    		<hard-coded-str> := [a-zA-Z]*
+    		<put-expr> := <source-expr> IN <dest-expr>
+    		<dest-expr> := <identifier>
+    		<source-expr> := <bool-literals> | <numeric-literals> | <arith-expr> 
+    		<arith-expr> := <add-expr> | <sub-expr> | <mul-expr> | <div-expr> | <mod-expr>
+    		<add-expr> := ADD <identifier> <identifier> | ADD <numeric-literals> <identifier> | ADD <numeric-literals> <numeric-literals>
+    		<sub-expr> := SUB <identifier> <identifier> | SUB <numeric-literals> <identifier> | SUB <numeric-literals> <numeric-literals>
+    		<mul-expr> := MUL <identifier> <identifier> | MUL <numeric-literals> <identifier> | MUL <numeric-literals> <numeric-literals>
+    		<div-expr> := DIV <identifier> <identifier> | DIV <numeric-literals> <identifier> | DIV <numeric-literals> <numeric-literals>
+    		<mod-expr> := MOD <identifier> <identifier> | MOD <numeric-literals> <identifier> | MOD <numeric-literals> <numeric-literals>
+    		<bool-literals> := true | false
+    		<arith-operators> := ADD | SUB | MUL | DIV | MOD
+    		<num-predicates> := GRT | GRE | LET | LEE | EQL
+    		<logic-operators> := AND | OHR | NON 
+    		<numeric-literals> := [0-9] 
+    */
 
 ### Why Grammars are important?
 It allows us to parse a certain language and determine if it is syntactically correct based on the grammar.
